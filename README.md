@@ -86,3 +86,4 @@ Used Tech Stack
 ``python manage.py dumpdata --format=json --indent 4 app_name > app_name/fixtures/app_name_initial_data.json``
 
 Show your support by 🌟 the project!!
+"# bolsa" 
