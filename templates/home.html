@@ -12,24 +12,24 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <div class="job-form-box">
-                        <h2 class="heading">Find a <span class="accent">job</span> you will
-                            <span class="accent">love</span>.
+                        <h2 class="heading">Encuentra un <span class="accent">Trabajo</span> que te 
+                            <span class="accent">Encantará</span>.
                         </h2>
                         <form id="job-main-form" method="get" action="{% url 'jobs:search' %}" class="job-main-form">
                             <div class="controls">
                                 <div class="row align-items-center">
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="profession">{% trans 'Position' %}</label>
+                                            <label for="profession">{% trans 'Posición' %}</label>
                                             <input type="text" id="profession" name="position"
-                                                   placeholder="Position you are looking for" class="form-control">
+                                            placeholder="Puesto que buscas" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="location">Location</label>
+                                            <label for="location">Localización</label>
                                             <input type="text" id="location" name="location"
-                                                   placeholder="Any particular location?" class="form-control">
+                                                   placeholder="¿Alguna ubicación en particular?" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -48,7 +48,7 @@
     </section>
     <section class="bg-light-gray">
         <div class="container">
-            <h3 class="heading">Featured jobs</h3>
+            <h3 class="heading">Trabajos Destacados</h3>
             <div class="row featured align-items-stretch">
                 {% for job in jobs %}
                     <div class="col-lg-4 mb-5 mb-lg-0">
@@ -69,11 +69,11 @@
                                 <p class="featured__details"><i class="fa fa-map-marker job__location"></i>
                                     {{ job.location }}
                                     {% if job.type == '1' %}
-                                        <span class="badge featured-badge badge-success">Full time</span>
+                                        <span class="badge featured-badge badge-success">Tiempo Completo</span>
                                     {% elif job.type == '2' %}
-                                        <span class="badge featured-badge badge-primary">Part time</span>
+                                        <span class="badge featured-badge badge-primary">Medio Tiempo</span>
                                     {% else %}
-                                        <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
+                                        <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internado</span>
                                     {% endif %}
                                 </p>
                                 {% for tag in job.tags.all %}
@@ -90,7 +90,7 @@
     </section>
     <section>
         <div class="container">
-            <h4 class="heading">Trending this month</h4>
+            <h4 class="heading">Tendencia este Mes</h4>
             {% for trending in trendings %}
                 <div class="job-listing  job-listing--last">
                     <div class="row">
@@ -134,8 +134,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Start searching for your new job now! </p>
-                    <p><a href="{% url 'jobs:jobs' %}" class="btn btn-outline-light">See our job offers </a></p>
+                    <p>¡Empiece a buscar su nuevo trabajo ahora! </p>
+                    <p><a href="{% url 'jobs:jobs' %}" class="btn btn-outline-light">Vea nuestras ofertas de trabajo </a></p>
                 </div>
             </div>
         </div>

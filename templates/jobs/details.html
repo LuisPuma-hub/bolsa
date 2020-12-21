@@ -10,16 +10,16 @@
     <section class="bg-light-gray">
         <div class="container">
             <h1 class="heading">{{ job.title }}<br>
-                <small>at <a href="#"> {{ job.company_name }}</a></small>
+                <small>en <a href="#"> {{ job.company_name }}</a></small>
             </h1>
             <div class="job-detail-description"><i class="fa fa-map-marker job__location"> </i>
-                {{ job.location }} | Posted {{ job.created_at|timesince }} |
+                {{ job.location }} | Posteado {{ job.created_at|timesince }} |
                 {% if job.type == '1' %}
-                    <span class="badge featured-badge badge-success">Full time</span>
+                    <span class="badge featured-badge badge-success">Tiempo Completo</span>
                 {% elif job.type == '2' %}
-                    <span class="badge featured-badge badge-primary">Part time</span>
+                    <span class="badge featured-badge badge-primary">Medio Tiempo</span>
                 {% else %}
-                    <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
+                    <span style="color: #ffffff;" class="badge featured-badge badge-warning">Interno</span>
                 {% endif %}
             </div>
         </div>
@@ -28,9 +28,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Category: {{ job.category }}</h3>
-                    <h5>Last date: {{ job.last_date|date }}</h5>
-                    <h5 class="text-info">Salary: {% if job.salary > 0 %} {{ job.salary }}/Monthly {% else %} Negotiable {% endif %} </h5>
+                    <h3>Categoria: {{ job.category }}</h3>
+                    <h5>Ultima ingreso: {{ job.last_date|date }}</h5>
+                    <h5 class="text-info">Salario: {% if job.salary > 0 %} {{ job.salary }}/Monthly {% else %} Negotiable {% endif %} </h5>
                     Tags:
                     {% for tag in job.tags.all %}
                         <span style="color: #ffffff;" class="badge featured-badge badge-secondary">{{ tag.name }}</span>
@@ -42,13 +42,14 @@
                         {% if request.user.is_authenticated %}
                             {% is_already_applied job request.user as is_applied %}
                             {% if is_applied %}
-                                <input type="button" class="btn btn-outline-white-primary" value="Already applied"/>
+                                <input type="button" class="btn btn-outline-white-primary" value="
+                                Ya aplicado"/>
                             {% else %}
                                 <form action="{% url 'jobs:apply-job' job.id %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="job" value="{{ job.id }}">
                                     <input type="submit" class="btn btn-outline-white-primary"
-                                           value="Apply for this job"/>
+                                           value="Aplica para este trabajo"/>
                                 </form>
                             {% endif %}
                         {% else %}
@@ -56,7 +57,7 @@
                                 {% csrf_token %}
                                 <input type="hidden" name="job" value="{{ job.id }}">
                                 <input type="submit" class="btn btn-outline-white-primary"
-                                       value="Apply for this job"/>
+                                       value="Aplica para este trabajo"/>
                             </form>
                         {% endif %}
                     </div>
@@ -79,12 +80,13 @@
                     </p>
                     <div class="job-detail__apply-top">
                         {% if is_applied %}
-                            <input type="button" class="btn btn-outline-white-primary" value="Already applied"/>
+                            <input type="button" class="btn btn-outline-white-primary" value="
+                            Ya aplicado"/>
                         {% else %}
                             <form action="{% url 'jobs:apply-job' job.id %}" method="post">
                                 {% csrf_token %}
                                 <input type="hidden" name="job" value="{{ job.id }}">
-                                <input type="submit" class="btn btn-outline-white-primary" value="Apply for this job"/>
+                                <input type="submit" class="btn btn-outline-white-primary" value="Aplica para este trabajo"/>
                             </form>
                         {% endif %}
                     </div>

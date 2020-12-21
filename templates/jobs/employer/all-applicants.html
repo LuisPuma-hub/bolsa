@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h1 class="heading">All applicants who applied for your positions</h1>
+                    <h1 class="heading">Todos los solicitantes que solicitaron sus puestos</h1>
                 </div>
             </div>
         </div>
@@ -23,17 +23,17 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <select id="status" name="status" class="form-control">
-                                    <option value="" selected>Select status</option>
-                                    <option value="1" {% if request.GET.status == "1" %} selected {% endif %}>Pending</option>
-                                    <option value="2" {% if request.GET.status == "2" %} selected {% endif %}>Accepted</option>
-                                    <option value="3" {% if request.GET.status == "3" %} selected {% endif %}>Rejected</option>
+                                    <option value="" selected>Selecionar Estado</option>
+                                    <option value="1" {% if request.GET.status == "1" %} selected {% endif %}>Pendiente</option>
+                                    <option value="2" {% if request.GET.status == "2" %} selected {% endif %}>Aceptado</option>
+                                    <option value="3" {% if request.GET.status == "3" %} selected {% endif %}>Rechazado</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-outline-white-primary"><i class="fa fa-magic"></i>
-                                    Filter
+                                    Filtro
                                 </button>
                             </div>
                         </div>

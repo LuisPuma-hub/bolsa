@@ -7,7 +7,7 @@
 {% block content %}
     <section class="bg-light-gray">
         <div class="container">
-            <h3 class="heading">Wish list</h3>
+            <h3 class="heading">Lista de deseos</h3>
             {% if favorites.count > 0 %}
                 {% for trending in favorites %}
                     <div class="job-listing job-listing--last">
@@ -47,7 +47,7 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <h4 class="text-center mb-lg-5">Empty favorite list!</h4>
+                <h4 class="text-center mb-lg-5">Lista de favoritos vacía</h4>
             {% endif %}
         </div>
     </section>

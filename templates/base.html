@@ -52,14 +52,12 @@
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a href="{% url 'jobs:home' %}" class="nav-link">Home <span class="sr-only">(current)</span></a>
+                        <a href="{% url 'jobs:home' %}" class="nav-link">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'jobs:jobs' %}" class="nav-link">Jobs</a>
+                        <a href="{% url 'jobs:jobs' %}" class="nav-link">Trabajos</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/{{ LANGUAGE_CODE }}/about-us/" class="nav-link">About Us</a>
-                    </li>
+                    
                     {% if request.user.is_authenticated and request.user.role == 'employer' %}
                         <li class="nav-item dropdown">
                             <a id="clientZone" href="#" data-toggle="dropdown"
@@ -79,19 +77,18 @@
                                 {% endif %}
                             </a>
                             <div aria-labelledby="clientZone" class="dropdown-menu">
-                                <a href="{% url 'jobs:employer-dashboard' %}" class="dropdown-item">Dashboard</a>
-                                <a href="{% url 'jobs:employer-all-applicants' %}" class="dropdown-item">Applicants </a>
-                                <a href="{% url 'jobs:employer-jobs-create' %}" class="dropdown-item">Post a new
-                                    job </a>
-                                <a href="{% url 'accounts:logout' %}" class="dropdown-item">Logout</a>
+                                <a href="{% url 'jobs:employer-dashboard' %}" class="dropdown-item">Tablero</a>
+                                <a href="{% url 'jobs:employer-all-applicants' %}" class="dropdown-item">Solicitantes</a>
+                                <a href="{% url 'jobs:employer-jobs-create' %}" class="dropdown-item">Publica un nuevo trabajo</a>
+                                <a href="{% url 'accounts:logout' %}" class="dropdown-item">Salir</a>
                             </div>
                         </li>
                     {% elif request.user.is_authenticated and request.user.role == 'employee' %}
                         <li class="nav-item">
-                            <a href="{% url 'jobs:employee-favorites' %}" class="nav-link">Favorites</a>
+                            <a href="{% url 'jobs:employee-favorites' %}" class="nav-link">Favoritos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'jobs:employee-my-applications' %}" class="nav-link">My Applications</a>
+                            <a href="{% url 'jobs:employee-my-applications' %}" class="nav-link">Mis Solicitudes</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -112,25 +109,26 @@
                                 {% endif %}
                             </a>
                             <div aria-labelledby="clientZone" class="dropdown-menu">
-                                <a href="{% url 'accounts:employer-profile-update' %}" class="dropdown-item">Edit Profile</a>
-                                <a href="{% url 'accounts:logout' %}" class="dropdown-item">Logout</a>
+                                <a href="{% url 'accounts:employer-profile-update' %}" class="dropdown-item">Editar Perfil</a>
+                                <a href="{% url 'accounts:logout' %}" class="dropdown-item">Salir</a>
                             </div>
                         </li>
                     {% else %}
                         <li class="nav-item dropdown">
                             <a id="pages" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                               class="nav-link dropdown-toggle"><i class="fa fa-signing"></i>Register
+                               class="nav-link dropdown-toggle"><i class="fa fa-signing"></i>Registrase
                             </a>
                             <div aria-labelledby="pages" class="dropdown-menu">
-                                <a href="{% url 'accounts:employee-register' %}" class="dropdown-item">Employee</a>
-                                <a href="{% url 'accounts:employer-register' %}" class="dropdown-item">Employers</a>
+                                <a href="{% url 'accounts:employee-register' %}" class="dropdown-item">Empleado</a>
+                                <a href="{% url 'accounts:employer-register' %}" class="dropdown-item">Empleadores</a>
                             </div>
                         </li>
                         <li class="nav-item" style="color: #fff">
                             <a href="{% url 'accounts:login' %}" class="btn navbar-btn btn-outline-light mb-5 mb-lg-0">
-                                <i class="fa fa-sign-in"></i>Login
+                                <i class="fa fa-sign-in"></i>Iniciar Sesion
                             </a>
                         </li>
+
                     {% endif %}
                     {% include "lang_selector.html" %}
                 </ul>
@@ -159,36 +157,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-12 mb-5">
-                    <h4 class="h5">About django-jobs</h4>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis
-                        aliquet congue. </p>
+                    <h4 class="h5">Sobre los trabajos</h4>
+                    <p> El horizonte es negro, la tempestad amenaza; trabajemos. Este es el único remedio para el mal del siglo. </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer__copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 text-md-left text-center">
-                    <p>&copy;{% now "Y" %} django-jobs!</p>
-                </div>
-                <div class="col-md-8 text-center text-md-right github-buttons">
-                    <a href="https://github.com/manjurulhoque/django-job-portal" target="_blank" rel="noopener">
-                        <img alt="stars" src="https://img.shields.io/github/stars/manjurulhoque/django-job-portal?style=social"/>
-                    </a>
-                    <a href="https://github.com/manjurulhoque/django-job-portal" target="_blank" rel="noopener">
-                        <img alt="forks" src="https://img.shields.io/github/forks/manjurulhoque/django-job-portal?style=social"/>
-                    </a>
-                    <a href="https://github.com/manjurulhoque/django-job-portal/issues" target="_blank" rel="noopener">
-                        <img alt="issues" src="https://img.shields.io/github/issues/manjurulhoque/django-job-portal?style=social"/>
-                    </a>
-                    <a href="https://github.com/manjurulhoque/django-job-portal/#contributors-" target="_blank" rel="noopener">
-                        <img alt="translation" src="https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square"/>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </footer>
 
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>

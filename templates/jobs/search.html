@@ -8,19 +8,19 @@
 
     <section class="job-form-section job-form-section--compressed">
         <div class="container">
-            <h4 class="heading">Find a <span class="accent">job </span> you will <span class="accent">love</span></h4>
+            <h4 class="heading">Encuentra un <span class="accent">Trabajo </span> que te  <span class="accent">Encantará</span></h4>
             <form id="job-main-form" method="get" action="#" class="job-main-form">
                 <div class="controls">
                     <div class="row align-items-end">
                         <div class="col-sm-1 col-lg-2"></div>
                         <div class="col-sm-5 col-lg-4 form-group">
-                            <label for="profession">Position</label>
+                            <label for="profession">Posición</label>
                             <input type="text" id="position" name="position"
-                                   placeholder="Position you are looking for" class="form-control">
+                                   placeholder="Puesto que buscas" class="form-control">
                         </div>
                         <div class="col-sm-5 col-lg-4 form-group">
-                            <label for="location">Location</label>
-                            <input type="text" id="location" name="location" placeholder="Any particular location?"
+                            <label for="location">Localización</label>
+                            <input type="text" id="location" name="location" placeholder="¿Alguna ubicación en particular?"
                                    value="" class="form-control">
                         </div>
                         <div class="col-sm-1 col-lg-2 form-group">
@@ -36,7 +36,7 @@
     </section>
     <section>
         <div class="container">
-            <h3 class="heading">We have found <span class="accent">{{ jobs.count }}</span> jobs</h3>
+            <h3 class="heading">Hemos encontrado <span class="accent">{{ jobs.count }}</span> Trabajos </h3>
             {% for job in jobs %}
                 <div class="job-listing  ">
                     <div class="row">

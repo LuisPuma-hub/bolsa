@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h1 class="heading">{{ applicant.user.get_full_name }}</h1>
-                    <h6 class="heading">Applied for: {{ applicant.job.title }}</h6>
+                    <h6 class="heading">Solicitado: {{ applicant.job.title }}</h6>
                 </div>
             </div>
         </div>
@@ -77,23 +77,23 @@
 
                         <canvas id="pdf-render"></canvas>
                     {% else %}
-                        <h3>CV not available</h3>
+                        <h3>CV no disponible</h3>
                     {% endif %}
                 </div>
                 <div class="col-lg-4">
-                    <h4>About: {{ applicant.user.get_full_name }}</h4>
-                    <h6>Skills:
+                    <h4>Sobre: {{ applicant.user.get_full_name }}</h4>
+                    <h6>Habilidades:
                         {% for tag in applicant.user.profile.tags.all %}
                             <span style="color: #ffffff;"
                                   class="badge featured-badge badge-secondary">{{ tag.name }}
                             </span>
                         {% endfor %}
                     </h6>
-                    <h6>Gender: {{ applicant.user.gender }}</h6>
+                    <h6>Genero: {{ applicant.user.gender }}</h6>
                     <h6>Email: {{ applicant.user.email }}</h6>
-                    <h6 class="text-success">Status: {% if applicant.status == 1 %}
-                        Pending {% elif applicant.status == 2 %} Accepted {% elif applicant.status == 3 %}
-                        Rejected {% endif %}</h6>
+                    <h6 class="text-success">Estado: {% if applicant.status == 1 %}
+                        Pendiente {% elif applicant.status == 2 %} Aceptado {% elif applicant.status == 3 %}
+                        Rechazado {% endif %}</h6>
                     <p class="job-detail__company-description">{{ job.company_description }}</p>
                     <p class="job-detail__social social social--outline">
                         <a href="{{ job.website }}" data-toggle="tooltip" data-placement="top" title="Website"
@@ -102,7 +102,7 @@
                         </a>
                     </p>
                     <input type="button" class="btn btn-outline-white-primary" {% if applicant.status != 1 %}
-                           disabled {% endif %} value="Send Response" data-toggle="modal"
+                           disabled {% endif %} value="Enviar Respuesta" data-toggle="modal"
                            data-target="#myModal"/>
                 </div>
                 {% if applicant.status == 1 %}
@@ -120,28 +120,28 @@
                                     <div class="modal-body">
                                         <input type="hidden" name="job_id" value="{{ applicant.job.id }}">
                                         <div class="form-group">
-                                            <label for="status">Status</label>
+                                            <label for="status">Estado</label>
                                             <select id="status" name="status" class="form-control">
                                                 <option value="2" {% if applicant.status == 2 %} selected
                                                         disabled {% endif %}>
-                                                    Accepted
+                                                    Aceptado
                                                 </option>
                                                 <option value="3" {% if applicant.status == 3 %} selected
                                                         disabled {% endif %}>
-                                                    Rejected
+                                                    Rechazado
                                                 </option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="Comment">Comment</label>
+                                            <label for="Comment">Comentario</label>
                                             <textarea id="Comment" name="comment" rows="3" required
                                                       class="form-control">{{ applicant.comment|default_if_none:"" }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                        <input type="submit" class="btn btn-success" value="Send"/>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                        <input type="submit" class="btn btn-success" value="Enviar"/>
                                     </div>
                                 </form>
 
